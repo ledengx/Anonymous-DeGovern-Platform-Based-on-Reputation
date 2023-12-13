@@ -8,8 +8,7 @@ import java.math.BigInteger;
 @Data
 public class UserDTO {
 
-
-    private BigInteger id;
-    private String pk;
+    private String userAddress;
+    private String password;
 
 }

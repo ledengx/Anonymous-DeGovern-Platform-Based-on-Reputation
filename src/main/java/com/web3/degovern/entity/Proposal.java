@@ -10,15 +10,14 @@ public class Proposal {
 
     private BigInteger ID;
     private String proposalAddress;
-    private Boolean isContract;
+    private String userAddress;
+    private String isContract;
     private String proposalName;
     private String proposalContent;
-    private Boolean isPass;
+    private String status;
     private BigInteger yes;
     private BigInteger no;
-    private BigInteger voters;
+    private BigInteger voter;
     private BigInteger start;
     private BigInteger stop;
-    private BigInteger DAOID;//所属DAO的ID
-    private BigInteger userID;//提案发起者ID
 }

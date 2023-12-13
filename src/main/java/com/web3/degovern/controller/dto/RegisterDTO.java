@@ -7,6 +7,6 @@ import java.math.BigInteger;
 
 @Data
 public class RegisterDTO {
-    private BigInteger id;
     private String userName;
+    private String password;
 }

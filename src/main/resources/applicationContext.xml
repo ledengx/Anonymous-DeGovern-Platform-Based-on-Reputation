@@ -14,8 +14,9 @@
             <map>
                 <entry key="peers">
                     <list>
-                        <value>192.168.1.114:20200</value>
-                        <value>192.168.1.114:20201</value>
+                        <!--ip以虚拟机里面的为主-->
+                        <value>192.168.1.109:20200</value>
+                        <value>192.168.1.109:20201</value>
                     </list>
                 </entry>
             </map>
