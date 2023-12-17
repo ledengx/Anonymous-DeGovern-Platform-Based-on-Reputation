@@ -14,5 +14,6 @@ public class ProposalDTO {
     private String proposalContent;
     private Integer id;
     private String userAddress;
+    private Integer stop;
 
 }

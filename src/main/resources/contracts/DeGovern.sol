@@ -1,5 +1,6 @@
 pragma solidity ^0.4.25;
 pragma experimental ABIEncoderV2;
+import './Upgrade.sol';
 
 contract DeGovern{
     address admin;
@@ -94,8 +95,8 @@ contract DeGovern{
         user.userName = userName;
         user.password = keccak256(password);
         user.pk = pk;
-        user.reputation = 0;
-        user.level = 0;
+        user.reputation = 2;
+        user.level = 2;
         usersID[userAddress] = user.id;
         users.push(user);
     }
@@ -121,14 +122,14 @@ contract DeGovern{
     }
 
     //创建提案
-    function createProposal(ProposalInfo proposal, uint256 DAOid, uint256 userID) public returns (bool){
+    function createProposal(ProposalInfo proposal, uint256 DAOid, uint256 userID, uint256 time) public returns (bool){
         bool res = false;
         if (users[userID].reputation >= DAOs[DAOid].reputationBaseline){
             proposal.id = proposals[DAOid].length;
             proposal.status = "投票中";
             //提案时间
             proposal.start = block.timestamp;
-            proposal.stop = uint256(proposal.id + 1) * 86400 + block.timestamp;
+            proposal.stop = time*60000 + block.timestamp;
             proposals[DAOid].push(proposal);
             proposalsLength = proposalsLength + 1;
             res = true;
@@ -137,7 +138,7 @@ contract DeGovern{
     }
 
     //投票
-    function vote(bool _choice, uint256 userID, uint256 DAOid, uint256 proposalID) public returns (bool){
+    function vote(bool _choice, uint256 userID, uint256 DAOid, uint256 proposalID, string time) public returns (bool){
         bool res = false;
         if (users[userID].reputation >= DAOs[DAOid].reputationBaseline){
             //创建投票
@@ -145,13 +146,20 @@ contract DeGovern{
             ballotsLength = ballotsLength + 1;
             ballot.id = ballots[proposalID].length;
             if (ballot.choice) {
-                proposals[DAOid][proposalID].yes = ballot.vote;
+                proposals[DAOid][proposalID].yes = proposals[DAOid][proposalID].yes+ballot.vote;
 
             }else{
-                proposals[DAOid][proposalID].no = ballot.vote;
+                proposals[DAOid][proposalID].no = proposals[DAOid][proposalID].no+ballot.vote;
             }
             proposals[DAOid][proposalID].voter = proposals[DAOid][proposalID].voter + 1;
             ballots[proposalID].push(ballot);
+            address user = users[userID].userAddress;
+            EventInfo memory eventInfo;
+            eventInfo.level = 1;
+            eventInfo.eventType = true;
+            eventInfo.isUsed = false;
+            eventInfo.time = time;
+            events[user].push(eventInfo);
             res = true;
         }
         return res;
@@ -168,32 +176,26 @@ contract DeGovern{
     }
 
     //是否通过
-    function checkStatus(uint256 proposalID, uint256 DAOid) public returns (string){
+    function checkStatus(uint256 proposalID, uint256 DAOid, string time) public{
         if (_checkTimes(proposalID,DAOid)){
             uint256 _yes = proposals[DAOid][proposalID].yes;
             uint256 _no = proposals[DAOid][proposalID].no;
             if (_yes > _no){
                 proposals[DAOid][proposalID].status = "已通过";
+                address userAddress = proposals[DAOid][proposalID].userAddress;
+                setEvent(userAddress, 2, time, true);
             }else{
-                return proposals[DAOid][proposalID].status;
+                proposals[DAOid][proposalID].status = "未通过";
             }
         }
-        proposals[DAOid][proposalID].status = "未通过";
-        return proposals[DAOid][proposalID].status;
-    }
-
-    //更新声誉
-    function updateReputation(uint256 id, uint256 reputation) public returns (bool) {
-        //verify
-        users[id].reputation = reputation;
-        return true;
     }
 
     //设置行为
-    function setEvent(address userAddress, uint256 level, string time) public{
+    function setEvent(address userAddress, uint256 level, string time, bool eventType) public{
         EventInfo memory userEvent;
         userEvent.level = level;
         userEvent.time = time;
+        userEvent.eventType = eventType;
         events[userAddress].push(userEvent);
     }
     function getUserID(address userAddress) public view returns (uint256){
@@ -223,14 +225,17 @@ contract DeGovern{
     function selectEvent(address userAddress) public view returns(EventInfo[]) {
         return events[userAddress];
     }
-    //设置已用
-    function setIsUsed(address userAddress, uint256 id) public {
-        events[userAddress][id].isUsed = true;
-    }
     //
-    function setRep(address userAddress, uint256 num) public {
+    function setRep(address userAddress, uint256 rep, uint256 level) public {
         uint256 id = usersID[userAddress];
-        users[id].reputation = num;
+        users[id].reputation = rep;
+        users[id].level = level;
     }
+    //合约升级
+    function upgradeContract(address controllerAddress, address newAddress) public {
+        (bool success, ) = controllerAddress.call(abi.encodeWithSignature("updateDappAddress", newAddress));
+        require(success, "Error when update");
+    }
+
 
 }

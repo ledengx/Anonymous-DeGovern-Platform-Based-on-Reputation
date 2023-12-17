@@ -12,4 +12,6 @@ public class User {
     private String userAddress;
     private BigInteger reputation;
     private BigInteger level;//暂定为整型
+    private BigInteger trust;
+    private BigInteger disTrust;
 }
