@@ -11,4 +11,8 @@ public class ContractConfig {
     private String dappStorageStructure = "";
     private String dapp = "";
     private String Upgrade = "";
+    private String ReplayAddress="0x7f95c23f0a43da9945e0e1d67b26ea8842a4fe9e";
+    private String Replay_protectAddress="0xc3fcf5a6aef810f06327cf06e71cca1be5cca2bc";
+    private String TransferAddress="0x0a2e2f632debbeb85e28cf8b18ea189251cbb9ac";
+    private String Data_SharingAddress="";
 }

@@ -1,0 +1,70 @@
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.1:8548          0.0.0.0:*               LISTEN      2201/fisco-bcos     
+tcp        0      0 0.0.0.0:20200           0.0.0.0:*               LISTEN      2195/fisco-bcos     
+tcp        0      0 0.0.0.0:20201           0.0.0.0:*               LISTEN      2199/fisco-bcos     
+tcp        0      0 0.0.0.0:20202           0.0.0.0:*               LISTEN      2197/fisco-bcos     
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:20203           0.0.0.0:*               LISTEN      2201/fisco-bcos     
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:30300           0.0.0.0:*               LISTEN      2195/fisco-bcos     
+tcp        0      0 0.0.0.0:30301           0.0.0.0:*               LISTEN      2199/fisco-bcos     
+tcp        0      0 0.0.0.0:30302           0.0.0.0:*               LISTEN      2197/fisco-bcos     
+tcp        0      0 0.0.0.0:30303           0.0.0.0:*               LISTEN      2201/fisco-bcos     
+tcp        0      0 127.0.0.1:8545          0.0.0.0:*               LISTEN      2195/fisco-bcos     
+tcp        0      0 127.0.0.1:8546          0.0.0.0:*               LISTEN      2199/fisco-bcos     
+tcp        0      0 127.0.0.1:8547          0.0.0.0:*               LISTEN      2197/fisco-bcos     
+tcp6       0      0 :::80                   :::*                    LISTEN      -                   
+tcp6       0      0 ::1:631                 :::*                    LISTEN      -                   
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           -                   
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           -                   
+udp        0      0 0.0.0.0:57704           0.0.0.0:*                           -                   
+udp        0      0 0.0.0.0:631             0.0.0.0:*                           -                   
+udp6       0      0 :::5353                 :::*                                -                   
+udp6       0      0 :::43325                :::*                                -                   
+raw6       0      0 :::58                   :::*                    7           -                   
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   PID/Program name     Path
+unix  2      [ ACC ]     SEQPACKET  LISTENING     24632    -                    /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     54672    1228/systemd         /run/user/1000/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     54676    1228/systemd         /run/user/1000/bus
+unix  2      [ ACC ]     STREAM     LISTENING     54677    1228/systemd         /run/user/1000/gnupg/S.gpg-agent.ssh
+unix  2      [ ACC ]     STREAM     LISTENING     54678    1228/systemd         /run/user/1000/gnupg/S.gpg-agent.extra
+unix  2      [ ACC ]     STREAM     LISTENING     54679    1228/systemd         /run/user/1000/gnupg/S.gpg-agent
+unix  2      [ ACC ]     STREAM     LISTENING     46962    1228/systemd         /run/user/1000/snapd-session-agent.socket
+unix  2      [ ACC ]     STREAM     LISTENING     46963    1228/systemd         /run/user/1000/gnupg/S.dirmngr
+unix  2      [ ACC ]     STREAM     LISTENING     46964    1228/systemd         /run/user/1000/gnupg/S.gpg-agent.browser
+unix  2      [ ACC ]     STREAM     LISTENING     51766    -                    /run/user/1000/keyring/control
+unix  2      [ ACC ]     STREAM     LISTENING     55715    -                    /run/user/1000/keyring/pkcs11
+unix  2      [ ACC ]     STREAM     LISTENING     55718    -                    /run/user/1000/keyring/ssh
+unix  2      [ ACC ]     STREAM     LISTENING     56374    1370/gnome-session-  @/tmp/.ICE-unix/1370
+unix  2      [ ACC ]     STREAM     LISTENING     56402    1538/pulseaudio      /run/user/1000/pulse/native
+unix  2      [ ACC ]     STREAM     LISTENING     46983    1263/Xorg            @/tmp/.X11-unix/X0
+unix  2      [ ACC ]     STREAM     LISTENING     48105    -                    @irqbalance1068.sock
+unix  2      [ ACC ]     STREAM     LISTENING     46984    1263/Xorg            /tmp/.X11-unix/X0
+unix  2      [ ACC ]     STREAM     LISTENING     51845    -                    /tmp/ssh-68NrkO0J6YSs/agent.1370
+unix  2      [ ACC ]     STREAM     LISTENING     56375    1370/gnome-session-  /tmp/.ICE-unix/1370
+unix  2      [ ACC ]     STREAM     LISTENING     47010    -                    /var/run/mysqld/mysqld.sock
+unix  2      [ ACC ]     STREAM     LISTENING     52655    -                    /run/NetworkManager/private-dhcp
+unix  2      [ ACC ]     STREAM     LISTENING     51693    -                    @/tmp/dbus-PlFAtprl
+unix  2      [ ACC ]     STREAM     LISTENING     49558    -                    @/tmp/dbus-DrdWfJgq
+unix  2      [ ACC ]     STREAM     LISTENING     49559    -                    @/tmp/dbus-tRYkm4Dv
+unix  2      [ ACC ]     STREAM     LISTENING     51694    -                    @/tmp/dbus-k5rVUYki
+unix  2      [ ACC ]     STREAM     LISTENING     61434    -                    /run/cups/cups.sock
+unix  2      [ ACC ]     STREAM     LISTENING     47897    -                    /var/run/vmware/guestServicePipe
+unix  2      [ ACC ]     STREAM     LISTENING     46550    -                    /run/snapd.socket
+unix  2      [ ACC ]     STREAM     LISTENING     46552    -                    /run/snapd-snap.socket
+unix  2      [ ACC ]     STREAM     LISTENING     46554    -                    /run/uuidd/request
+unix  2      [ ACC ]     STREAM     LISTENING     46556    -                    /run/avahi-daemon/socket
+unix  2      [ ACC ]     STREAM     LISTENING     46558    -                    /var/run/dbus/system_bus_socket
+unix  2      [ ACC ]     STREAM     LISTENING     53715    1480/dbus-daemon     @/tmp/dbus-Sz6awL4Pen
+unix  2      [ ACC ]     STREAM     LISTENING     46560    -                    /run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     24620    -                    /run/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     24635    -                    /run/systemd/fsck.progress
+unix  2      [ ACC ]     STREAM     LISTENING     56418    1565/ibus-daemon     @/tmp/dbus-SOFE3se9
+unix  2      [ ACC ]     STREAM     LISTENING     24637    -                    /run/systemd/journal/stdout
